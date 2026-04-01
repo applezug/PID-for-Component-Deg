@@ -1,0 +1,6 @@
+{
+  "physics_loss_mean": 0.29120413064956663,
+  "physics_loss_std": 0.045946649066510394,
+  "efficiency_violation_ratio": 0.0421875,
+  "monotonicity_violation_ratio": 0.464313725490196
+}

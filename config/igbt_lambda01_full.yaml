@@ -1,0 +1,31 @@
+data:
+  data_root: "data/NASA IGBT"
+  seq_length: 256
+  train_ratio: 0.7
+  val_ratio: 0.15
+  normalize: true
+
+diffusion:
+  timesteps: 200
+  sampling_timesteps: 50
+  Nsample: 1024
+  temp_sample: 0.1
+  beta_schedule: "cosine"
+
+physics:
+  enabled: true
+  lambda_physics: 0.1
+  igbt:
+    coffin_manson_exponent: 2.0
+
+training:
+  epochs: 200
+  batch_size: 32
+  learning_rate: 1.0e-4
+  patience: 30
+  seed: 42
+
+output:
+  save_dir: "results"
+  exp_name: "igbt_lambda01_full"
+

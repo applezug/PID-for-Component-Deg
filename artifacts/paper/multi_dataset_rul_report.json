@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-03-24T00:00:00",
+  "config": "config/hpc_cmapss_paper.yaml",
+  "n_test_per_dataset": 0,
+  "source_note": "Published-table reference bundle (anonymised). Regenerate with experiments/run_multi_dataset.py after obtaining C-MAPSS data.",
+  "summary": {
+    "FD001": {
+      "rul_rmse": 64.61532326004414,
+      "rul_phm_score": 1179174.8021808623,
+      "n_test": 100,
+      "failure_threshold": 0.65,
+      "dataset": "FD001",
+      "deg_type": "linear"
+    },
+    "FD002": {
+      "rul_rmse": 69.367745890177,
+      "rul_phm_score": 3923407.978643476,
+      "n_test": 259,
+      "failure_threshold": 0.65,
+      "dataset": "FD002",
+      "deg_type": "linear"
+    },
+    "FD003": {
+      "rul_rmse": 64.66606528929992,
+      "rul_phm_score": 1084018.9717372179,
+      "n_test": 100,
+      "failure_threshold": 0.65,
+      "dataset": "FD003",
+      "deg_type": "linear"
+    },
+    "FD004": {
+      "rul_rmse": 66.71626850979428,
+      "rul_phm_score": 3173755.5607195813,
+      "n_test": 248,
+      "failure_threshold": 0.65,
+      "dataset": "FD004",
+      "deg_type": "linear"
+    }
+  }
+}

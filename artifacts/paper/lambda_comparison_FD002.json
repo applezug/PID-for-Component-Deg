@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-03-28T05:47:02.484507",
+  "dataset": "FD002",
+  "n_test": 0,
+  "lambdas": [
+    0.0,
+    0.1,
+    0.5,
+    1.0
+  ],
+  "metrics": {
+    "0.0": {
+      "rul_rmse": 69.367745890177,
+      "rul_phm_score": 3923407.978643476,
+      "n_test": 259,
+      "failure_threshold": 0.65,
+      "dataset": "FD002",
+      "deg_type": "linear"
+    },
+    "0.1": {
+      "rul_rmse": 95.92450931137401,
+      "rul_phm_score": 19920487420.639793,
+      "n_test": 259,
+      "failure_threshold": 0.65,
+      "dataset": "FD002",
+      "deg_type": "linear"
+    },
+    "0.5": {
+      "rul_rmse": 95.87757409050727,
+      "rul_phm_score": 17157790661.44588,
+      "n_test": 259,
+      "failure_threshold": 0.65,
+      "dataset": "FD002",
+      "deg_type": "linear"
+    },
+    "1.0": {
+      "rul_rmse": 95.8787088630162,
+      "rul_phm_score": 19222059015.494682,
+      "n_test": 259,
+      "failure_threshold": 0.65,
+      "dataset": "FD002",
+      "deg_type": "linear"
+    }
+  }
+}

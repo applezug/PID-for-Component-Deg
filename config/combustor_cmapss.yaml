@@ -1,0 +1,45 @@
+# 燃烧室组件 - CMAPSS 实验配置（方案 5.3）
+# 传感器：T30(3)、T50(4)、farB(16)、Wf/Ps30(12)，方案 3.2 燃烧室
+
+data:
+  data_root: "data/cmapss"
+  dataset: "FD004"   # 多工况
+  seq_length: 256
+  train_ratio: 0.7
+  val_ratio: 0.15
+  # 燃烧室传感器（0-based 列索引）: T30=3, T50=4, farB=16, Wf/Ps30=12
+  sensor_indices: [3, 4, 16, 12]
+  normalize: true
+
+diffusion:
+  timesteps: 200
+  sampling_timesteps: 50
+  Nsample: 1024
+  temp_sample: 0.1
+  beta_schedule: "cosine"
+
+physics:
+  enabled: true
+  lambda_physics: 0.1
+  combustor:
+    # 温升~油气比、燃烧效率范围；Wf/Ps30 退化时单调上升
+    eta_norm_bounds: [-1.2, 1.2]   # 归一化空间效率代理的边界
+    monotonic_feature_idx: 3       # 3=Wf/Ps30
+
+training:
+  diffusion_train: false
+  epochs: 200
+  batch_size: 32
+  learning_rate: 1.0e-4
+  patience: 30
+  seed: 42
+  device: "cuda"
+
+rul:
+  failure_threshold: 0.8
+  prediction_method: "trajectory"
+  deg_feature_idx: 3   # Wf/Ps30 列（0=T30,1=T50,2=farB,3=Wf/Ps30）
+
+output:
+  save_dir: "results"
+  exp_name: "combustor_cmapss"

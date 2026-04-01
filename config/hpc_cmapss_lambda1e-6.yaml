@@ -1,0 +1,40 @@
+# 策略3 配置：显著减小 λ_physics
+# 与 hpc_cmapss.yaml 相同，仅 physics.lambda_physics 不同
+
+data:
+  data_root: "data/cmapss"
+  dataset: "FD001"
+  seq_length: 256
+  train_ratio: 0.7
+  val_ratio: 0.15
+  sensor_indices: [2, 3, 7, 14]
+  normalize: true
+
+diffusion:
+  timesteps: 200
+  sampling_timesteps: 50
+  Nsample: 512
+  temp_sample: 0.1
+  beta_schedule: "cosine"
+  beta_start: 1.0e-4
+  beta_end: 1.0e-2
+
+physics:
+  enabled: true
+  lambda_physics: 1.0e-6   # 策略3：显著减小，使物理损失与扩散损失同量级
+  compressor:
+    speed_pressure_coeff: null
+    efficiency_bounds: [0.7, 0.9]
+    monotonic_feature: "T30_residual"
+
+training:
+  epochs: 200
+  batch_size: 32
+  learning_rate: 1.0e-4
+  patience: 30
+  seed: 42
+  device: "cuda"
+
+output:
+  save_dir: "results"
+  exp_name: "hpc_cmapss_lambda1e-6"

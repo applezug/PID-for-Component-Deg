@@ -1,0 +1,36 @@
+{
+  "summary": {
+    "baseline_mean": 0.29132887721061707,
+    "baseline_std": 0.04587849100565374,
+    "pinn_mean": 0.29125953316688535,
+    "pinn_std": 0.04601847556428622,
+    "n_trajectories": 5
+  },
+  "per_traj": [
+    {
+      "traj_id": 0,
+      "baseline_physics_loss": 0.2888334393501282,
+      "pinn_physics_loss": 0.28901612758636475
+    },
+    {
+      "traj_id": 1,
+      "baseline_physics_loss": 0.3524640202522278,
+      "pinn_physics_loss": 0.35248520970344543
+    },
+    {
+      "traj_id": 2,
+      "baseline_physics_loss": 0.24675428867340088,
+      "pinn_physics_loss": 0.24632540345191956
+    },
+    {
+      "traj_id": 3,
+      "baseline_physics_loss": 0.3327454626560211,
+      "pinn_physics_loss": 0.3328005373477936
+    },
+    {
+      "traj_id": 4,
+      "baseline_physics_loss": 0.23584717512130737,
+      "pinn_physics_loss": 0.23567038774490356
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Python >= 3.10 recommended. Pin versions locally if you need strict reproducibility.
+torch>=2.0.0
+numpy>=1.23
+pandas>=1.5
+PyYAML>=6.0
+tqdm>=4.65
+matplotlib>=3.7

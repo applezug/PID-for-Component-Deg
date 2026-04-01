@@ -1,0 +1,17 @@
+# Local / large / identifying — do not publish
+data/
+results/
+*.pt
+*.pth
+*.pkl
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.bak_lambda
+.DS_Store
+
+# Regenerate with scripts/
+figures/*.png
+figures/*.pdf

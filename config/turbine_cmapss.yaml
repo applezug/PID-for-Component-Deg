@@ -1,0 +1,44 @@
+# 高压涡轮组件 - CMAPSS 实验配置（方案 5.2）
+# 传感器：T50(4)、P40(10)、W31(17)、W32(18)、Nc(14)，方案 3.2 高压涡轮
+
+data:
+  data_root: "data/cmapss"
+  dataset: "FD004"   # 多工况，含涡轮相关退化
+  seq_length: 256
+  train_ratio: 0.7
+  val_ratio: 0.15
+  # 高压涡轮传感器（0-based 列索引）: T50=4, P40=10, W31=17, W32=18, Nc=14
+  sensor_indices: [4, 10, 17, 18, 14]
+  normalize: true
+
+diffusion:
+  timesteps: 200
+  sampling_timesteps: 50
+  Nsample: 1024
+  temp_sample: 0.1
+  beta_schedule: "cosine"
+
+physics:
+  enabled: true
+  lambda_physics: 0.1
+  turbine:
+    # T50~Nc², W31~T50；退化时 T50 单调上升
+    monotonic_feature_idx: 0   # 0=T50
+
+training:
+  diffusion_train: false
+  epochs: 200
+  batch_size: 32
+  learning_rate: 1.0e-4
+  patience: 30
+  seed: 42
+  device: "cuda"
+
+rul:
+  failure_threshold: 0.8
+  prediction_method: "trajectory"
+  deg_feature_idx: 0   # T50 列（0=T50,1=P40,2=W31,3=W32,4=Nc）
+
+output:
+  save_dir: "results"
+  exp_name: "turbine_cmapss"
