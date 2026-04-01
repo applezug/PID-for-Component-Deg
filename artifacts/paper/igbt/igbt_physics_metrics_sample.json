@@ -1,0 +1,5 @@
+{
+  "note": "Sample post-hoc aggregate from one export (physics_loss on generated trajectories). The manuscript's Conclusion highlights L_mono reduction; see igbt_conclusion_metrics.json for those headline numbers.",
+  "physics_loss_mean": 0.006343073025345802,
+  "physics_loss_std": 0.0008204690101892508
+}

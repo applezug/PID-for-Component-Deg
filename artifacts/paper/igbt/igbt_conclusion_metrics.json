@@ -1,0 +1,54 @@
+{
+  "schema": "igbt_conclusion_metrics.v1",
+  "purpose": "Numeric reference for manuscript Conclusion and IGBT subsection (cross-domain verification). Values align with internal Table 9 / §4.10 reporting; regenerate with scripts/compute_igbt_monotonicity_metrics.py after training.",
+  "dataset_citation": "NASA Prognostics Data Repository — IGBT accelerated aging (download separately; not redistributed in this repository).",
+  "experimental_setup": {
+    "backbone": "Model-based diffusion (MBD) + optional diffusion training; IGBTPhysics (monotonicity + optional coupling + smoothness per models/physics/igbt_physics.py)",
+    "seq_length": 256,
+    "lambda_physics_configs_reported": [0.0, 0.1, 0.5],
+    "config_files": [
+      "config/igbt_lambda0_full.yaml",
+      "config/igbt_lambda01_full.yaml",
+      "config/igbt_lambda05_full.yaml"
+    ],
+    "exp_names": [
+      "igbt_lambda0_full",
+      "igbt_lambda01_full",
+      "igbt_lambda05_full"
+    ]
+  },
+  "baseline_for_L_mono_reduction": {
+    "description": "Unconstrained-baseline pathway used in the manuscript to define relative reduction of mean L_mono (physics-guided vs baseline).",
+    "L_mono_mean": 0.006343073025345802,
+    "L_mono_mean_scientific": "6.34e-3",
+    "source": "Post-hoc monotonicity loss on baseline-style trajectories (same evaluation code as compute_igbt_monotonicity_metrics.py)."
+  },
+  "physics_guided_full_runs": {
+    "lambda_0.0": {
+      "L_mono_mean": 9.57e-7,
+      "L_mono_std": 6.4e-7,
+      "monotonicity_violation_ratio_mean": 0.209,
+      "monotonicity_violation_ratio_std": 0.144
+    },
+    "lambda_0.1": {
+      "L_mono_mean": 9.57e-7,
+      "L_mono_std": 6.4e-7,
+      "monotonicity_violation_ratio_mean": 0.209,
+      "monotonicity_violation_ratio_std": 0.144
+    },
+    "lambda_0.5": {
+      "L_mono_mean": 9.57e-7,
+      "L_mono_std": 6.4e-7,
+      "monotonicity_violation_ratio_mean": 0.209,
+      "monotonicity_violation_ratio_std": 0.144
+    }
+  },
+  "derived": {
+    "relative_reduction_L_mono_percent": 99.98,
+    "relative_reduction_formula": "100 * (1 - L_mono_guided_mean / L_mono_baseline_mean); guided mean taken as 9.57e-7, baseline as 6.343e-3"
+  },
+  "interpretation": {
+    "soft_constraint": "Low L_mono coexists with non-zero monotonicity_violation_ratio because penalties are soft and trajectories may exhibit small local deviations.",
+    "cross_domain_claim": "Same code path as C-MAPSS after replacing cmapss_dataset + compressor physics with igbt_dataset + IGBTPhysics."
+  }
+}

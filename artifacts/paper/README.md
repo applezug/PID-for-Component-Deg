@@ -10,5 +10,6 @@ These JSON files support **figure regeneration** and **numeric cross-checks** fo
 | `trajectory_physics_comparison.json` | Per-trajectory physics losses for Figure 3 panel (a). |
 | `hpc_cmapss_history.json` | Training/validation loss curve for Figure 2. |
 | `picp_multi_dataset_summary.json` | PICP / interval-width summary for Figure 5 (FD002–FD004). |
+| **`igbt/`** | **IGBT cross-domain pack** (Conclusion / §4.10): see `igbt/README.md`, `igbt_conclusion_metrics.json`, training λ summary. |
 
-To **recompute from code**, place NASA C-MAPSS files under `data/cmapss/` (see repository `DATA.md`), install dependencies, then run the commands in the root `README.md`.
+To **recompute from code**, place NASA C-MAPSS files under `data/cmapss/` (see repository `DATA.md`), install dependencies, then run the commands in the root `README.md`. **IGBT** additionally needs `data/NASA IGBT/` and the steps in `artifacts/paper/igbt/README.md`.

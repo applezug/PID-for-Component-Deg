@@ -1,0 +1,23 @@
+{
+  "schema": "igbt_lambda_ablation_training_summary.v1",
+  "purpose": "Training-time reference for IGBT full-physics λ ablation (best validation loss and early stopping). Complements igbt_conclusion_metrics.json (which focuses on post-hoc monotonicity statistics).",
+  "note": "Regenerate by inspecting results/igbt_lambda*_full_history.json after run_igbt.py --diffusion-train.",
+  "runs": {
+    "igbt_lambda0_full": {
+      "best_val_loss": 0.0716,
+      "early_stop_epoch": 107,
+      "config": "config/igbt_lambda0_full.yaml"
+    },
+    "igbt_lambda01_full": {
+      "best_val_loss": 0.1287,
+      "early_stop_epoch": 102,
+      "config": "config/igbt_lambda01_full.yaml"
+    },
+    "igbt_lambda05_full": {
+      "best_val_loss": 0.2468,
+      "early_stop_epoch": 102,
+      "config": "config/igbt_lambda05_full.yaml"
+    }
+  },
+  "discussion_hook": "Larger lambda_physics tends to increase diffusion training val_loss under fixed capacity/epochs, consistent with a stronger physics-data trade-off on IGBT."
+}

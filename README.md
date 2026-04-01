@@ -12,7 +12,19 @@ Minimal open-science release accompanying **MCA (*Processes*) / PGDP** and **AIS
 | `models/`, `datasets/`, `utils/` | Core implementation |
 | `config/hpc_cmapss_paper.yaml` | Paper-aligned settings (τ=0.65, linear MBD, seed 42, `diffusion_train: false` for dt-off / fast RUL path) |
 | `artifacts/paper/` | Reference metrics & summaries for figures / table checks |
+| `artifacts/paper/igbt/` | **IGBT cross-domain** numbers for Conclusion / Table 9–class claims + reviewer workflow |
+| `REPRODUCIBILITY.md` | Maps manuscript claims → artifacts → commands |
 | `scripts/` | Figure export, λ sweep helper, PICP multi-dataset script |
+
+### IGBT (important for Conclusion)
+
+The manuscript uses IGBT as **cross-domain evidence** (same backbone; replace data loader + physics module). Reviewers should read:
+
+1. **`artifacts/paper/igbt/README.md`** — what is included, what is not, and the exact reproduction chain.  
+2. **`artifacts/paper/igbt/igbt_conclusion_metrics.json`** — headline values: **~99.98%** mean `L_mono` reduction vs baseline pathway, **~20.9%** mean monotonicity violation ratio (soft constraint), stable across λ∈{0,0.1,0.5} in the reported full-physics runs.  
+3. **`artifacts/paper/igbt/igbt_lambda_ablation_training_summary.json`** — training val-loss trade-off as λ increases.
+
+Raw IGBT data and checkpoints are **not** redistributed; see **`DATA.md`**.
 
 ## Quick start (figures only, no C-MAPSS files needed)
 
@@ -50,6 +62,19 @@ python scripts/run_lambda_comparison.py --config config/hpc_cmapss_paper.yaml --
 
 Enable **diffusion training** in YAML (`training.diffusion_train: true`) for the full training-time story; wall time increases substantially.
 
+### IGBT pipeline (requires `data/NASA IGBT/`)
+
+```bash
+# Example: full-physics λ=0 run (long; GPU recommended)
+python experiments/run_igbt.py --config config/igbt_lambda0_full.yaml --diffusion-train --epochs 200
+
+# After imputed trajectories exist under results/
+python scripts/compute_igbt_monotonicity_metrics.py
+
+# Optional: interval / sample-based diagnostics (see experiments/run_igbt_rul_eval_v2.py --help)
+python experiments/run_igbt_rul_eval_v2.py --config config/igbt_lambda0_full.yaml --exp-name igbt_lambda0_full --n-samples 20 --interval-quantile 0.9
+```
+
 ## Citation
 
 Cite the corresponding **MCA** and/or **AIS** article once published. Until DOIs are available, point reviewers to this repository URL and commit hash.
@@ -60,4 +85,4 @@ MIT — see `LICENSE`.
 
 ---
 
-**中文摘要**：本仓库为期刊公开查验用的**最小代码与匿名结果包**；不含个人信息与原始 C-MAPSS/IGBT 数据。论文级图表可仅用 `artifacts/paper/` 中的 JSON 复现；完整数值需自行下载 NASA 数据后按上文命令重跑。
+**中文摘要**：本仓库为期刊公开查验用的**最小代码与匿名结果包**；不含个人信息与原始 C-MAPSS/IGBT 数据。论文级图表可仅用 `artifacts/paper/` 中的 JSON 复现；完整数值需自行下载 NASA 数据后按上文命令重跑。**结论中 IGBT 跨域表述**请优先对照 `artifacts/paper/igbt/igbt_conclusion_metrics.json` 与 `igbt/README.md`，并按 `REPRODUCIBILITY.md` 映射至重现实验命令。
