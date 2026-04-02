@@ -14,6 +14,7 @@ Minimal open-science release accompanying **MCA (*Processes*) / PGDP** and **AIS
 | `artifacts/paper/` | Reference metrics & summaries for figures / table checks |
 | `artifacts/paper/igbt/` | **IGBT cross-domain** numbers for Conclusion / Table 9–class claims + reviewer workflow |
 | `REPRODUCIBILITY.md` | Maps manuscript claims → artifacts → commands |
+| `NOTICE.md` | Copyright, originality statement, data notice, academic citation |
 | `scripts/` | Figure export, λ sweep helper, PICP multi-dataset script |
 
 ### IGBT (important for Conclusion)
@@ -77,15 +78,11 @@ python experiments/run_igbt_rul_eval_v2.py --config config/igbt_lambda0_full.yam
 
 ## Citation
 
-Cite the corresponding **MCA** and/or **AIS** article once published. Until DOIs are available, point reviewers to this repository URL and commit hash.
+Cite the corresponding **MCA** and/or **AIS** article once published. Until DOIs are available, point reviewers to this repository URL and commit hash. Full repository-level wording is in **`NOTICE.md`**.
 
-## License
+## License and copyright
 
-MIT — see `LICENSE`.
-
-## Upstream / related codebases
-
-If you maintain sibling folders such as `model_based_diffusion` (LeCAR MBD, JAX), `diffusion_ts` (degradation imputation), or `PINN` (tutorial collections), read **`ATTRIBUTION.md`** before publishing: it explains **conceptual vs verbatim** reuse and when extra **citations or license notices** are needed.
+**MIT** — see [`LICENSE`](LICENSE). Copyright, originality, data boundaries, and citation guidance: see [`NOTICE.md`](NOTICE.md).
 
 ---
 

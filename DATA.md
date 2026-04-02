@@ -1,6 +1,6 @@
 # Data (not shipped in this repository)
 
-This package **does not** redistribute NASA or third-party datasets. Obtain them under their original terms.
+This package **does not** redistribute NASA or third-party datasets. Obtain them under their original terms. Repository copyright and redistribution boundaries: [`NOTICE.md`](NOTICE.md).
 
 ## NASA C-MAPSS (turbofan)
 
