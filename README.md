@@ -83,6 +83,10 @@ Cite the corresponding **MCA** and/or **AIS** article once published. Until DOIs
 
 MIT — see `LICENSE`.
 
+## Upstream / related codebases
+
+If you maintain sibling folders such as `model_based_diffusion` (LeCAR MBD, JAX), `diffusion_ts` (degradation imputation), or `PINN` (tutorial collections), read **`ATTRIBUTION.md`** before publishing: it explains **conceptual vs verbatim** reuse and when extra **citations or license notices** are needed.
+
 ---
 
 **中文摘要**：本仓库为期刊公开查验用的**最小代码与匿名结果包**；不含个人信息与原始 C-MAPSS/IGBT 数据。论文级图表可仅用 `artifacts/paper/` 中的 JSON 复现；完整数值需自行下载 NASA 数据后按上文命令重跑。**结论中 IGBT 跨域表述**请优先对照 `artifacts/paper/igbt/igbt_conclusion_metrics.json` 与 `igbt/README.md`，并按 `REPRODUCIBILITY.md` 映射至重现实验命令。
