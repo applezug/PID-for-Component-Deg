@@ -80,8 +80,8 @@ python experiments/run_igbt_rul_eval_v2.py --config config/igbt_lambda0_full.yam
 
 If you use this code for your research, please cite the corresponding article(s) and this archived version:
 
-- **AIS paper** (under review): Q. Liu, Y. Di, X. Meng, S. Feng, H. Cui, T. Wang, "Interpretable Physics-Informed Diffusion for Component-Level Degradation Modeling and RUL Prediction", *Advanced Intelligent Systems* (2026).  
-- **PGDP paper** (under review): Q. Liu, Y. Di, X. Meng, Z. Wang, Z. Xie, H. Cui, "Prior-Guided Diffusion Processes: A Unified Framework for Knowledge-Informed Generative Modeling", *Mathematical and Computational Applications* (2026).  
+- **AIS paper** (under review): Q. Liu, Y. Di, S. Feng, X. Meng, Z. Chen, H. Cui, T. Wang, "Interpretable Physics-Informed Diffusion for Component-Level Degradation Modeling and RUL Prediction", *Advanced Intelligent Systems* (2026).  
+- **MCA paper** (under review): Q. Liu, Y. Di, X. Meng, Z. Wang, Z. Xie, H. Cui, "Prior-Guided Diffusion Processes: A Unified Framework for Knowledge-Informed Generative Modeling", *Mathematical and Computational Applications* (2026).  
 
 **Code archive (this version):** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19438016.svg)](https://doi.org/10.5281/zenodo.19438016)  
 For review, you may also refer to the repository URL and commit hash; the Zenodo DOI provides a permanent, citable snapshot. Full repository-level wording is in **`NOTICE.md`**.
